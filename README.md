@@ -9,3 +9,17 @@ context:
         user: admin
         pass: admin
 ```
+## .tdmctl folder structure
+```yaml
+.tdmctl:
+  config.yml:
+  modules:
+    <context-name1>:
+      <module-name1>:
+        main.py:
+    <context-name2>:
+      <module-name1>:
+        main.py:
+      <module-name2>:
+        main.py:
+```
