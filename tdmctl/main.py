@@ -2,12 +2,12 @@ import typer
 
 from tdmctl.__init__ import __version__
 from tdmctl.core import *
-from tdmctl.commands import config
+from tdmctl.commands import context
 app = typer.Typer()
 
-app.add_typer(config.app, name="config")
+app.add_typer(context.app, name="context")
 
-config.init_home_user_config()
+context.init_home_user_config()
 
 
 @app.callback()
