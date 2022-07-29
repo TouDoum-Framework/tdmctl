@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "tdmctl"
-version = "0.1.0"
+version = "0.1.1"
 description = "command line tool client for TouDoum-Framework"
 authors = ["msterhuj <gabin.lanore@gmail.com>"]
 homepage = "https://toudoum-framework.github.io/"
