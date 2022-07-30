@@ -38,6 +38,30 @@ def init_home_user_config() -> None:
         save_config(default_config)
 
 
+def get_api_endpoint() -> str | None:
+    """
+    Get the api endpoint
+    """
+    lconfig = get_config()
+    name = get_current_context_name()
+    if name not in lconfig["context"]:
+        typer.echo("Context name not found")
+        return
+    return lconfig["context"][name]["host"] + "/api"
+
+
+def get_api_credentials() -> tuple | None:
+    """
+    return tuple with user and pass
+    """
+    lconfig = get_config()
+    name = get_current_context_name()
+    if name not in lconfig["context"]:
+        typer.echo("Context name not found")
+        return
+    return lconfig["context"][name]["user"], lconfig["context"][name]["pass"]
+
+
 def get_config() -> dict:
     """
     Get the config file and ask for create if not
@@ -154,6 +178,13 @@ def print_current_context() -> None:
 # Command zone
 #
 app = typer.Typer()
+
+
+@app.callback()
+def callback():
+    """
+    Manage Context for acting on multiple servers
+    """
 
 
 @app.command(name="current")
