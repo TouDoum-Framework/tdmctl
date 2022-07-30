@@ -1,12 +1,11 @@
 import typer
 
-from tdmctl.__init__ import __version__
-
-from tdmctl.commands import context
+from tdmctl import commands, __version__
 
 app = typer.Typer()
 
-app.add_typer(context.app, name="context")
+app.add_typer(commands.context_app, name="context")
+app.add_typer(commands.system_app, name="system")
 
 
 @app.callback()
