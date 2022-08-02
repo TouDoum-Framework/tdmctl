@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "tdmctl"
-version = "0.1.2"
+version = "0.0.0"
 description = "command line tool client for TouDoum-Framework"
 authors = ["msterhuj <gabin.lanore@gmail.com>"]
 homepage = "https://toudoum-framework.github.io/"
@@ -22,10 +22,10 @@ tdmctl = "tdmctl.main:app"
 
 [tool.poetry.dependencies]
 python = "^3.8"
-columnar = "^1.4.1"
 colorama = "^0.4.5"
 typer = {extras = ["all"], version = "^0.6.1"}
 PyYAML = "^6.0"
+requests = "^2.28.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
