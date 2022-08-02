@@ -23,7 +23,9 @@ jobs:
         id: version
         uses: codacy/git-version@2.5.4
         with:
+          major-identifier: 'breaking:'
           minor-identifier: 'feat:'
+          dev-branch: 'develop'
 
       - id: tag
         run: echo "::set-output name=tag::${{ steps.version.outputs.version }}"
@@ -50,6 +52,10 @@ jobs:
       - name: "Set version to __init__.py"
         run: |
           echo "__version__ = '${{ needs.generate-version.outputs.tag }}'" > tdmctl/__init__.py
+
+      - name: "Debug print file"
+        run: |
+          cat pyproject.toml && cat tdmctl/__init__.py
 
       - name: Build and publish to pypi
         uses: JRubics/poetry-publish@v1.12

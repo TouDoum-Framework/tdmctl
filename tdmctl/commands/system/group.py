@@ -1,7 +1,7 @@
 import typer
 from rich.console import Console
 from rich.table import Table
-from rich import print
+from rich import print, box
 
 from tdmctl.core import Api
 
@@ -23,7 +23,7 @@ def list_command():
     """
     api = Api()
     groups_json = api.get("/group/").json()
-    table = Table("Id", "Name")
+    table = Table("Id", "Name", box=box.ROUNDED)
     for group in groups_json["results"]:
         table.add_row(str(group.get("id")), group.get("name"))
     console.print(table)

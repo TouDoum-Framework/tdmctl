@@ -1,4 +1,5 @@
 import typer
+from rich import box
 from rich.console import Console
 from rich.table import Table
 
@@ -25,7 +26,7 @@ def list_context_command():
         active_context_name = context_manager.current.name
     except AttributeError:
         active_context_name = None
-    table = Table("Context", "Host", "Username")
+    table = Table("Context", "Host", "Username", box=box.ROUNDED)
     for context in context_manager.context_list:
         if context.name == active_context_name:
             table.add_row(f"*{context.name}", context.host, context.user, style="bold")
